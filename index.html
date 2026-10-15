@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Protected page</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Ccircle cx='28' cy='10' r='6' fill='%23F2B66C'/%3E%3Cpath d='M3 35l7-15h22l5 15z' fill='%231B3A63'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap">
+<style id="gate-css">
+/* Password screen: the page content and the files are encrypted; nothing readable is published before the password. */
+:root{--glass:rgba(255,255,255,.78);--line:rgba(14,34,48,.12);--line-2:rgba(14,34,48,.24);--ink:#0E2230;--muted:#4A5F6B;--accent:#9C5A06;--accent-ink:#fff;--bad:#B3261E;
+  --sky1:#7FB0CF;--sky2:#F3E3CB;--sand1:#D6B07A;--sand2:#B98F58;--sun:rgba(255,196,120,.75);--shadow:0 40px 90px -45px rgba(14,34,48,.6);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--glass:rgba(8,15,27,.72);--line:rgba(255,255,255,.1);--line-2:rgba(255,255,255,.24);--ink:#EEF3F5;--muted:#A3B4BE;--accent:#F2B66C;--accent-ink:#10151C;--bad:#F2867D;
+  --sky1:#050A15;--sky2:#3A2B3B;--sand1:#5A4330;--sand2:#2C2219;--sun:rgba(245,154,87,.45);--shadow:0 40px 90px -35px rgba(0,0,0,.85);color-scheme:dark}}
+:root[data-theme="dark"]{--glass:rgba(8,15,27,.72);--line:rgba(255,255,255,.1);--line-2:rgba(255,255,255,.24);--ink:#EEF3F5;--muted:#A3B4BE;--accent:#F2B66C;--accent-ink:#10151C;--bad:#F2867D;
+  --sky1:#050A15;--sky2:#3A2B3B;--sand1:#5A4330;--sand2:#2C2219;--sun:rgba(245,154,87,.45);--shadow:0 40px 90px -35px rgba(0,0,0,.85);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;min-height:100svh;font-family:"Cairo",system-ui,"Segoe UI",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased;
+  background:linear-gradient(180deg,var(--sky1) 0%,var(--sky2) 60%,var(--sand1) 60.2%,var(--sand2) 100%);display:grid;place-items:center;padding:24px 16px;overflow-x:hidden}
+.sun{position:fixed;width:46vmax;height:46vmax;right:-8vmax;top:-12vmax;border-radius:50%;background:radial-gradient(circle,var(--sun),transparent 62%);animation:drift 16s ease-in-out infinite alternate;pointer-events:none}
+@keyframes drift{to{transform:translate(-6vmax,5vmax) scale(1.08)}}
+.dunes{position:fixed;left:0;right:0;bottom:0;height:46%;pointer-events:none;opacity:.55}
+.dunes path{fill:var(--sand2)}
+.stars{position:fixed;inset:0 0 40% 0;pointer-events:none;opacity:0;background-image:radial-gradient(1.4px 1.4px at 12% 18%,#fff,transparent),radial-gradient(1.2px 1.2px at 32% 8%,#fff,transparent),radial-gradient(1.6px 1.6px at 58% 22%,#fff,transparent),radial-gradient(1.2px 1.2px at 76% 12%,#fff,transparent),radial-gradient(1.4px 1.4px at 88% 30%,#fff,transparent),radial-gradient(1.1px 1.1px at 22% 36%,#fff,transparent),radial-gradient(1.3px 1.3px at 46% 40%,#fff,transparent),radial-gradient(1.1px 1.1px at 66% 4%,#fff,transparent)}
+:root[data-theme="dark"] .stars{opacity:.9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stars{opacity:.9}}
+.card{position:relative;z-index:1;width:min(400px,100%);padding:30px 28px 24px;border-radius:26px;background:var(--glass);border:1px solid var(--line);box-shadow:var(--shadow);
+  backdrop-filter:blur(22px) saturate(1.35);-webkit-backdrop-filter:blur(22px) saturate(1.35);animation:rise .8s cubic-bezier(.2,.8,.2,1) both;text-align:center}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.lock{width:64px;height:64px;margin:0 auto 14px;border-radius:20px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+.lock svg{width:30px;height:30px}
+h1{margin:0;font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:1.6rem;line-height:1.2}
+h1 [lang="ar"],.sub [lang="ar"]{display:block;font-family:"Cairo",sans-serif}
+h1 [lang="ar"]{font-weight:800;font-size:1.25rem;margin-top:4px;color:var(--muted)}
+.sub{margin:10px 0 20px;color:var(--muted);font-size:.93rem;line-height:1.55}
+.field{position:relative;display:block}
+.field input{width:100%;height:50px;border-radius:14px;border:1px solid var(--line-2);background:color-mix(in srgb,var(--glass) 60%,transparent);color:inherit;
+  font:600 16px/1 "Cairo",system-ui,sans-serif;padding:0 52px 0 16px;outline:none;transition:border-color .2s,box-shadow .2s;direction:ltr;text-align:left}
+.field input:focus{border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 22%,transparent)}
+.field input::placeholder{font-weight:500;color:var(--muted)}
+.eye{position:absolute;right:6px;top:6px;width:38px;height:38px;border:0;border-radius:10px;background:none;color:var(--muted);cursor:pointer;display:grid;place-items:center}
+.eye:hover{color:var(--ink)} .eye svg{width:20px;height:20px} .eye .off{display:none} .eye[aria-pressed="true"] .on{display:none} .eye[aria-pressed="true"] .off{display:block}
+.go{margin-top:12px;width:100%;height:50px;border:0;border-radius:14px;background:var(--accent);color:var(--accent-ink);font:800 16px/1 "Cairo",system-ui,sans-serif;cursor:pointer;
+  position:relative;overflow:hidden;box-shadow:0 14px 30px -16px var(--accent);transition:transform .2s}
+.go:hover{transform:translateY(-1px)}
+.go::before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .6s}
+.go:hover::before{transform:translateX(120%)}
+.busy .go{pointer-events:none;opacity:.85}
+.busy .go::after{content:"";position:absolute;right:16px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;border:2.5px solid currentColor;border-right-color:transparent;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.msg{min-height:1.5em;margin:12px 0 0;font-size:.9rem;font-weight:700;color:var(--bad)}
+.shake{animation:shake .45s}
+@keyframes shake{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.out{opacity:0;transform:scale(.98);transition:opacity .35s,transform .35s}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="sun" aria-hidden="true"></div><div class="stars" aria-hidden="true"></div>
+<svg class="dunes" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true"><path d="M0 120C180 60 330 150 520 110S860 40 1010 90 1200 80 1200 80V300H0z"/></svg>
+<form class="card" id="gform" autocomplete="on">
+  <div class="lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10.5" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.4" fill="currentColor"/></svg></div>
+  <h1><span>Protected page</span><span lang="ar" dir="rtl">صفحة محمية</span></h1>
+  <p class="sub"><span>Enter the password to open the page.</span><span lang="ar" dir="rtl">أدخل كلمة السر لفتح الصفحة.</span></p>
+  <input type="text" name="username" value="me6097" autocomplete="username" hidden>
+  <label class="field"><input type="password" id="pw" name="password" autocomplete="current-password" placeholder="Password · كلمة السر" aria-label="Password" required autofocus>
+    <button type="button" class="eye" id="eye" aria-label="Show password" aria-pressed="false">
+      <svg class="on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+      <svg class="off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l18 18M10.6 5.1A10.6 10.6 0 0 1 12 5c6.5 0 10 7 10 7a17.7 17.7 0 0 1-3.2 4.2M6.6 6.6C3.9 8.3 2 12 2 12s3.5 7 10 7c1.8 0 3.4-.5 4.8-1.3M9.9 9.9a3 3 0 0 0 4.2 4.2"/></svg>
+    </button>
+  </label>
+  <button class="go" id="go" type="submit">Open · فتح</button>
+  <p class="msg" id="gmsg" role="alert"></p>
+</form>
+<script>
+(function () {
+"use strict";
+const SALT = "rrO1JMWO8k5wBJTFwsWTgA==", ITER = 600000, PARTS = "https://raw.githubusercontent.com/Engmedoyz/me6097-submission/main/x/", THREE_URL = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const root = document.documentElement;
+try { const t = localStorage.getItem("me6097-sub-theme"); if (t) root.dataset.theme = t; } catch (e) {}
+const form = document.getElementById("gform"), pw = document.getElementById("pw"), msg = document.getElementById("gmsg");
+document.getElementById("eye").addEventListener("click", e => {
+  const show = pw.type === "password"; pw.type = show ? "text" : "password";
+  e.currentTarget.setAttribute("aria-pressed", String(show)); pw.focus();
+});
+const loadPage = () => fetch("d/p.bin", { cache: "no-cache" }).then(r => { if (!r.ok) throw new Error("load"); return r.arrayBuffer(); });
+let pageBuf = loadPage(); pageBuf.catch(() => {});
+let FILES = null;
+const cache = {};
+
+form.addEventListener("submit", async e => {
+  e.preventDefault();
+  if (form.classList.contains("busy")) return;
+  const val = pw.value.trim(); if (!val) { pw.focus(); return; }
+  form.classList.add("busy"); msg.textContent = "";
+  let data;
+  try {
+    const buf = await pageBuf;
+    const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(val), "PBKDF2", false, ["deriveKey"]);
+    const key = await crypto.subtle.deriveKey({ name: "PBKDF2", salt: b64(SALT), iterations: ITER, hash: "SHA-256" }, base, { name: "AES-GCM", length: 256 }, false, ["decrypt"]);
+    const pt = await crypto.subtle.decrypt({ name: "AES-GCM", iv: new Uint8Array(buf, 0, 12) }, key, new Uint8Array(buf, 12));
+    data = JSON.parse(new TextDecoder().decode(pt));
+  } catch (err) {
+    form.classList.remove("busy");
+    if (err && err.message === "load") { pageBuf = loadPage(); pageBuf.catch(() => {}); msg.textContent = "Could not load the page, try again · تعذّر التحميل، حاول مرة أخرى"; return; }
+    msg.textContent = "Wrong password · كلمة السر غير صحيحة";
+    form.classList.remove("shake"); void form.offsetWidth; form.classList.add("shake"); pw.select();
+    return;
+  }
+  form.classList.add("out");
+  await new Promise(r => setTimeout(r, 300));
+  openPage(data);
+});
+
+async function openPage(data) {
+  FILES = data.files;
+  const st = document.createElement("style"); st.textContent = data.style; document.head.appendChild(st);
+  document.getElementById("gate-css").remove();
+  document.title = data.title;
+  document.body.innerHTML = data.body;
+  await new Promise(res => { const s = document.createElement("script"); s.src = THREE_URL; s.onload = s.onerror = res; document.head.appendChild(s); });
+  try { new Function(data.script)(); } catch (err) { console.error(err); }
+  document.querySelectorAll("[data-file]").forEach(btn => btn.addEventListener("click", e => { e.preventDefault(); fileClick(btn); }));
+}
+
+/* a file is stored as AES-GCM chunks (12-byte IV = 8-byte file nonce + 4-byte chunk counter), split into parts */
+async function getFile(id, onp) {
+  if (cache[id]) return cache[id];
+  const f = FILES[id], key = await crypto.subtle.importKey("raw", b64(f.k), "AES-GCM", false, ["decrypt"]);
+  const nonce = b64(f.n), CH = f.c + 16, total = f.p.reduce((a, p) => a + p[1], 0), out = [];
+  let got = 0, idx = 0;
+  for (const [name, len] of f.p) {
+    const r = await fetch(PARTS + name);
+    if (!r.ok) throw new Error("HTTP " + r.status);
+    const buf = new Uint8Array(len), rd = r.body.getReader(); let off = 0;
+    for (;;) {
+      const { done, value } = await rd.read(); if (done) break;
+      if (off + value.length > len) throw new Error("size");
+      buf.set(value, off); off += value.length; got += value.length; onp(got / total * .97);
+    }
+    if (off !== len) throw new Error("size");
+    for (let o = 0; o < len; o += CH) {
+      const iv = new Uint8Array(12); iv.set(nonce); new DataView(iv.buffer).setUint32(8, idx++);
+      out.push(await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, buf.subarray(o, Math.min(o + CH, len))));
+    }
+  }
+  onp(1);
+  return (cache[id] = new Blob(out, { type: f.t }));
+}
+
+
+async function fileClick(btn) {
+  if (btn.dataset.busy) return;
+  const id = btn.dataset.file, f = FILES[id], ar = root.lang === "ar", lab = btn.querySelector("[data-i18n]"), keep = lab.innerHTML;
+  const isPdf = f.t === "application/pdf" && btn.dataset.mode !== "download";
+  let w = null;
+  if (isPdf) {
+    w = window.open("", "_blank");
+    if (w) try { w.document.title = f.name; w.document.body.style.cssText = "margin:0;height:100vh;display:grid;place-items:center;font:600 16px system-ui,sans-serif;color:#4A5F6B"; w.document.body.textContent = ar ? "جارٍ فتح الملف…" : "Opening the file…"; } catch (_) {}
+  }
+  btn.dataset.busy = "1";
+  const prog = p => { const n = Math.round(p * 100); btn.style.setProperty("--p", n + "%"); lab.textContent = (ar ? "جارٍ التجهيز " : "Preparing ") + n + "%"; };
+  prog(0);
+  const done = () => { delete btn.dataset.busy; btn.style.removeProperty("--p"); };
+  try {
+    const url = URL.createObjectURL(await getFile(id, prog));
+    if (isPdf) { if (w && !w.closed) w.location.href = url; else location.href = url; }
+    else { const a = document.createElement("a"); a.href = url; a.download = f.name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 120000); }
+    done(); lab.innerHTML = keep;
+  } catch (err) {
+    console.error(err); if (w && !w.closed) w.close(); done();
+    lab.textContent = ar ? "تعذّر التحميل، حاول مرة أخرى" : "Download failed, try again";
+    setTimeout(() => { lab.innerHTML = keep; }, 3500);
+  }
+}
+})();
+</script>
+</body>
+</html>
